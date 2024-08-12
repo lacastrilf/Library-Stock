@@ -74,7 +74,7 @@ int main()
     {
         if (option == "1")
         {
-            cout << "User Men iasdnñaksndasknasu" << endl;
+            cout << "User Menu" << endl;
         }
         else if (option == "2")
         {
