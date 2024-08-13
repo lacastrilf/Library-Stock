@@ -80,7 +80,7 @@ int main()
         }
         else if (option == "2")
         {
-            Datas data("./txtFiles/administrador.txt");
+            Datas data("./txtFiles/administrator.txt");
             cout << "Enter your username" << endl;
             cin >> username;
             cout << "Enter your password" << endl;
