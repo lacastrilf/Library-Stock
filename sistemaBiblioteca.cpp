@@ -85,7 +85,7 @@ int main()
         }
         else
         {
-            cout << "Invalid option. Please try again." << endl;
+            cout << "Invalid option :(. Please try again." << endl;
         }
     }
     else
