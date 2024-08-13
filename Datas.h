@@ -52,7 +52,18 @@ public:
 
     void addBook(Book book)
     {
-    }
+        ifstream file(filename);
+        if (!file.is_open())
+        {
+            cerr << "Error opening file!" << endl;
+        }
+        else
+        {
+            ofstream outfile(filename, ios::app);
+            outfile << book.getKey() << "," << book.getTitle() << "," << book.getAuthor() << "," << book.getYear() << "," << book.getPrice() << "," << book.getQuantityStock() << "," << book.getSeller() << endl;
+            outfile.close();
+        }
+    };
 };
 
 #endif // DATAS_H
