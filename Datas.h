@@ -49,6 +49,10 @@ public:
             return false;
         }
     };
+
+    void addBook(Book book)
+    {
+    }
 };
 
 #endif // DATAS_H
