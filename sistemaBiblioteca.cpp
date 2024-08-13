@@ -1,8 +1,10 @@
 #include <iostream>
 #include <string>
-#include <cctype> // Para std::isdigit
-
+#include <cctype> // Use std::isdigit
 using namespace std;
+
+// Include of class
+#include "Datas.h"
 
 class Book
 {
@@ -66,7 +68,7 @@ int main()
 
     cout << "Welcome to the library!" << endl;
     cout << "1. User" << endl
-         << "2. Administrador" << endl
+         << "2. Administrator" << endl
          << "Select an option: ";
     cin >> option;
 
@@ -78,10 +80,20 @@ int main()
         }
         else if (option == "2")
         {
+            Datas data("./txtFiles/administrador.txt");
             cout << "Enter your username" << endl;
             cin >> username;
             cout << "Enter your password" << endl;
             cin >> password;
+
+            if (data.getAdministrator(username, password))
+            {
+                cout << "Administrator authenticated successfully!" << endl;
+            }
+            else
+            {
+                cout << "Authentication failed. Please check your username and password." << endl;
+            }
         }
         else
         {
@@ -94,4 +106,4 @@ int main()
     }
 
     return 0;
-}
+};
