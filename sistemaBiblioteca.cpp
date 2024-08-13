@@ -77,12 +77,17 @@ public:
     }
 
 private:
+    string sellerName; //update
+
     void sellBook()
     {
         string title, author;
         int year;
         double price;
         cout << "Enter book details please: " << endl;
+
+        cout << "Enter your name please: ";   
+        getline(cin,sellerName);
 
         cout << "Title: ";
         cin.ignore();
@@ -115,8 +120,7 @@ private:
 
         cout << "Where do you want to buy the book?" << endl;
         cout << "1. From the library" << endl;
-        cout << "2. From UserX" << endl; // Enter the name from the sellBook class??? to do
-        cout << "Select an option: ";
+        cout << "2. From " << sellerName << endl; 
         cin >> option;
 
         if (isNumber(option))
@@ -214,7 +218,8 @@ int main()
     {
         if (option == "1")
         {
-            cout << "User Menu" << endl;
+            UserMenu menu;
+            menu.showMenu();
         }
         else if (option == "2")
         {
