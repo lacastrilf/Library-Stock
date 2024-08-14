@@ -31,7 +31,7 @@ int main()
     Datas dataBook("./txtFiles/books.txt");     // Create objet of type "Datas" to manage the Books.txt files
     Datas data("./txtFiles/administrator.txt"); // Create objet of type "Datas" to manage the administrator.txt files
 
-    Book *stock[10][10];
+    Book *stock[10][10]{0};
 
     ifstream file("./txtFiles/books.txt");
     if (!file.is_open())
@@ -64,6 +64,22 @@ int main()
 
     cout << stock[1][1]->getKey() << endl;
     cout << stock[1][2]->getKey() << endl;
+
+    for (int i = 0; i < 10; i++)
+    {
+        for (int j = 0; j < 10; j++)
+        {
+            if (stock[i][j] != nullptr)
+            {
+                cout << stock[i][j]->getKey() + "|";
+            }
+            else
+            {
+                cout << "nullptr |";
+            }
+        }
+        cout << "" << endl;
+    }
 
     cout << "Welcome to the library!" << endl;
     cout << "1. User" << endl
