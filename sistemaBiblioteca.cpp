@@ -22,28 +22,48 @@ bool isNumber(const string &str)
 bool isGreather(const int number)
 {
     return number > 0;
-}
-
-int indexRow(string key)
-{
-}
-
-int indexColumns(string key)
-{
-}
-
-struct Stock
-{
-    string typeString;
-    int typeInt;
-    double typeDouble;
 };
+
 //--------------------------------------------------------------------------------------------
 int main()
 {
     string option, username, password;
     Datas dataBook("./txtFiles/books.txt");     // Create objet of type "Datas" to manage the Books.txt files
     Datas data("./txtFiles/administrator.txt"); // Create objet of type "Datas" to manage the administrator.txt files
+
+    Book *stock[10][10];
+
+    ifstream file("./txtFiles/books.txt");
+    if (!file.is_open())
+    {
+        cerr << "Error opening file!" << endl;
+        return 1;
+    }
+    else
+    {
+        string arrayTokens[7]{};
+        string line;
+        int rows = 1, columns = 1, index = 0;
+
+        while (getline(file, line) && rows < 50)
+        {
+            stringstream ss(line);
+            string token;
+
+            while (getline(ss, token, ',') && index < 7)
+            {
+                arrayTokens[index] = token;
+                index++;
+            }
+            Book *books = new Book(arrayTokens[0], arrayTokens[1], arrayTokens[2], 2008, 200, 1, arrayTokens[6]);
+            stock[1][columns] = books;
+            columns++;
+            index = 0;
+        }
+    }
+
+    cout << stock[1][1]->getKey() << endl;
+    cout << stock[1][2]->getKey() << endl;
 
     cout << "Welcome to the library!" << endl;
     cout << "1. User" << endl
